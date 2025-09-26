@@ -98,11 +98,13 @@ WSGI_APPLICATION = 'news.wsgi.application'
 #     }
 # }
 
+
+
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL')) , 
+    'default': dj_database_url.parse(config(
+        'DATABASE_URL'
+        ))        
 }
-
-
 cloudinary.config(
     cloud_name = config('CLOUDINARY_CLOUD_NAME'),
     api_key = config('CLOUDINARY_API_KEY'),
