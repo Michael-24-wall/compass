@@ -21,6 +21,7 @@ class NewsArticle(models.Model):
     content = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
     published_at = models.DateTimeField(auto_now_add=True)
+    video_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.title
