@@ -15,12 +15,13 @@ class NewsArticleForm(forms.ModelForm):
 class UpdateNewsArticleForm(forms.ModelForm):
     class Meta:
         model = NewsArticle
-        fields = ['title', 'content', 'category', 'image']
+        fields = ['title', 'content', 'category', 'image', 'video']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600'}),
             'content': forms.Textarea(attrs={'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600', 'rows': 5}),
             'category': forms.Select(attrs={'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600'}),
             'image': forms.ClearableFileInput(attrs={'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600'}),
+            'video': forms.ClearableFileInput(attrs={'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600'}),
         }   
         
 class CommentForm(forms.ModelForm):

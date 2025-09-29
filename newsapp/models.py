@@ -20,13 +20,14 @@ class NewsArticle(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
+    video = CloudinaryField('video', blank=True, null=True)
     published_at = models.DateTimeField(auto_now_add=True)
-    video_url = models.URLField(blank=True, null=True)  # Optional video URL
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
-    
+      
+
+                                                                                
     
 class Comment(models.Model):
     article = models.ForeignKey(NewsArticle, on_delete=models.CASCADE, related_name='comments')

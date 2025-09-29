@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'newsapp',
     'cloudinary',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -87,24 +88,24 @@ WSGI_APPLICATION = 'news.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': config('DATABASE_ENGINE'),
-#         'NAME': config('DATABASE_NAME'),
-#         'USER': config('DATABASE_USER'),
-#         'PASSWORD': config('DATABASE_PASSWORD'),
-#         'HOST': config('DATABASE_HOST'),
-#         'PORT': config('DATABASE_PORT'),
-#     }
-# }
-
-
-
 DATABASES = {
-    'default': dj_database_url.parse(config(
-        'DATABASE_URL'
-        ))        
+    'default': {
+        'ENGINE': config('DATABASE_ENGINE'),
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
+    }
 }
+
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse(config(
+#         'DATABASE_URL'
+#         ))        
+# }
 cloudinary.config(
     cloud_name = config('CLOUDINARY_CLOUD_NAME'),
     api_key = config('CLOUDINARY_API_KEY'),
